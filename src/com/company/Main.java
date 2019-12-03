@@ -1,10 +1,9 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Collections;
+import java.util.*;
 
 public class Main {
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -15,32 +14,42 @@ public class Main {
         listA.add(sc.nextLine());
         listA.add(sc.nextLine());
         listA.add(sc.nextLine());
-        System.out.println(listA);
 
-        listA.ensureCapacity(10);
-        ArrayList<String> listB = new ArrayList<>(10);
-        System.out.println("Список B");
-        listB.add(sc.nextLine());
-        listB.add(sc.nextLine());
-        listB.add(sc.nextLine());
-        listB.add(sc.nextLine());
-        listB.add(sc.nextLine());
-        System.out.println(listB);
+        Iterator<String> iter = listA.iterator();
+        while (iter.hasNext()) {
+            String a = iter.next();
 
-        ArrayList<String> listC = new ArrayList<>();
-        Collections.sort(listA);
-        Collections.sort(listB);
-        Collections.reverse(listB);
-        listC.addAll(listA);
-        listC.addAll(listB);
+            System.out.println(listA);
 
-        System.out.println(listC);
+            listA.ensureCapacity(10);
+            ArrayList<String> listB = new ArrayList<>(10);
+            System.out.println("Список B");
+            listB.add(sc.nextLine());
+            listB.add(sc.nextLine());
+            listB.add(sc.nextLine());
+            listB.add(sc.nextLine());
+            listB.add(sc.nextLine());
 
-        Collections.sort(listC);
-        listC.toString().length();
+            iter = listB.iterator();
+            while (iter.hasNext()) {
+                a = iter.next();
+                System.out.println(listB);
+            }
 
-        System.out.println(listC);
 
+            ArrayList<String> listC = new ArrayList<>();
+            Collections.sort(listA);
+            Collections.sort(listB);
+            Collections.reverse(listB);
+            listC.addAll(listA);
+            listC.addAll(listB);
+
+            System.out.println(listC);
+
+            Collections.sort(listC);
+            listC.toString().length();
+
+            System.out.println(listC);
+        }
     }
 }
-
